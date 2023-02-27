@@ -14,7 +14,7 @@
 	<!-- mapping  -->
 	<servlet-mapping>
 		<servlet-name>springapp</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 
