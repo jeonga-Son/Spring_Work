@@ -1,5 +1,10 @@
 package kosa.service;
 
-public class HelloService {
+import org.springframework.stereotype.Service;
 
+@Service
+public class HelloService {
+	public String getMessage() {
+		return "수업집중";
+	}
 }
