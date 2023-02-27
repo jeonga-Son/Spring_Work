@@ -5,11 +5,13 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>spring_web</display-name>
 
+	<!-- DispatcherServlet을 만듬 -->
 	<servlet>
 		<servlet-name>springapp</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> <!-- DispatcherServlet이 호출되도록, 자동으로 읽어들임 -->
 	</servlet>
 
+	<!-- mapping  -->
 	<servlet-mapping>
 		<servlet-name>springapp</servlet-name>
 		<url-pattern>*.do</url-pattern>
