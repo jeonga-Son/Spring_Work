@@ -1,11 +1,16 @@
 package kosa.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import kosa.model.Board;
 
 @Controller
 public class BoardController {
@@ -26,8 +31,13 @@ public class BoardController {
 	
 	//@RequestMapping(value = "/board_insert", method = RequestMethod.POST)
 	@PostMapping("/board_insert")
-	public String board_insert() {
-		System.out.println("POST 요청");
+	public String board_insert(@Valid Board board, BindingResult errors) { // Validation을 자체적으로 체크한다.
+		if(errors.hasErrors()) {
+			System.out.println("에러발생");
+			return "insert_form";
+		}
+		
+		System.out.println(board);
 		return "";
 	}
 	
