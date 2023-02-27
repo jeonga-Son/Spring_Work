@@ -16,21 +16,25 @@ public class Board {
 	@Pattern(regexp = "[0-9a-zA-Z°¡-ÆR]*", message = "Æ¯¼ö¹®ÀÚ ±ÝÁö")
 	private String writer;
 	
-	private String content;
+	private String contents;
 	private String regdate;
 	private int hitcount;
 	
 	public Board() {}
 
-	public Board(int seq, String title, String writer, String content, String regdate, int hitcount) {
+	
+
+	public Board(int seq, String title, String writer, String contents, String regdate, int hitcount) {
 		super();
 		this.seq = seq;
 		this.title = title;
 		this.writer = writer;
-		this.content = content;
+		this.contents = contents;
 		this.regdate = regdate;
 		this.hitcount = hitcount;
 	}
+
+
 
 	public int getSeq() {
 		return seq;
@@ -56,13 +60,19 @@ public class Board {
 		this.writer = writer;
 	}
 
-	public String getContent() {
-		return content;
+	
+
+	public String getContents() {
+		return contents;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+
+
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
+
+
 
 	public String getRegdate() {
 		return regdate;
@@ -80,10 +90,13 @@ public class Board {
 		this.hitcount = hitcount;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Board [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regdate="
+		return "Board [seq=" + seq + ", title=" + title + ", writer=" + writer + ", contents=" + contents + ", regdate="
 				+ regdate + ", hitcount=" + hitcount + "]";
 	}
+
 	
 }
