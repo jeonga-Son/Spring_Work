@@ -20,4 +20,23 @@
 		<property name="prefix" value="/view/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	
+	<!-- Mybatis Setting -->
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean> <!-- 최종적으로 만들고 싶은 것은 sqlSessionFactory였다. 즉, 최종적으로 sqlSessionFactory를 만들어준다. -->
+	<!-- 이것을 통해 spring과 mybatis와 연결이 된다. 즉, 연결점이다. -->
+	
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource"></property> <!-- myDataSource 객체를 전달 -->
+		<property name="configuration" value="/WEB-INF/mybatis-config.xml"></property>
+	</bean>
+	
+	<bean id="myDataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/oracle"/>
+		<property name="resourceRef" value="true"/>
+		</bean>
 </beans>

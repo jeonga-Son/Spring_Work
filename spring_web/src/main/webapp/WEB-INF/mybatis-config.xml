@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 간단하게 쓸 수 있도록 -->
+	<typeAliases>
+		<typeAlias type="kosa.model.Board" alias="Board"/>
+	</typeAliases>
+	
+	<!-- DB 연결 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="JNDI">
+				<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+			</dataSource>
+			
+		</environment>		
+	</environments>
+	
+	<!-- 여러개의 xml을 포함할 수 있다. -->
+	<mappers>
+		<mapper resource="kosa/mapper/Board.xml"/>
+	</mappers>
+	
+</configuration>

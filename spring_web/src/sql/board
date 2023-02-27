@@ -1,0 +1,15 @@
+-- 테이블 생성
+create table board(
+	seq number primary key,
+	title varchar2(100),
+	writer varchar2(100),
+	contents varchar2(2000),
+	regdate DATE,
+	hitcount number
+);
+
+-- 시퀀스 삭제
+drop sequence board_seq;
+
+-- 시퀀스 생성
+create sequence board_seq;

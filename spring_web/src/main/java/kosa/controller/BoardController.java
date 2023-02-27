@@ -2,7 +2,9 @@ package kosa.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kosa.model.Board;
+import kosa.model.BoardDao;
 
 @Controller
 public class BoardController {
+	@Autowired
+	private BoardDao dao;
 
 //	@RequestMapping("/board_insert")
 //	public ModelAndView board_form() {
@@ -38,7 +43,17 @@ public class BoardController {
 			return "insert_form";
 		}
 		
-		return "";
+		dao.insertBoard(board);
+
+		return "redirect:board_list";
+	}
+	
+	@GetMapping("/board_list")
+	public String showBoard_list(Model model) {
+		System.out.println( dao.listBoard());
+		// model.addAttribute("list", dao.listBoard());
+		
+		return "list";
 	}
 	
 }

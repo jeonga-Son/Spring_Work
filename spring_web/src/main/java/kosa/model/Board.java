@@ -1,12 +1,14 @@
 package kosa.model;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 //JSR 303
-public class Board {
+public class Board implements Serializable { //mybatis를 사용하면 반드시 Serializable을 붙여야한다.
 	private int seq;
 	
 	@NotEmpty(message = "제목을 반드시 입력하세요.")
@@ -22,7 +24,6 @@ public class Board {
 	
 	public Board() {}
 
-	
 
 	public Board(int seq, String title, String writer, String contents, String regdate, int hitcount) {
 		super();
@@ -33,8 +34,6 @@ public class Board {
 		this.regdate = regdate;
 		this.hitcount = hitcount;
 	}
-
-
 
 	public int getSeq() {
 		return seq;
@@ -60,19 +59,14 @@ public class Board {
 		this.writer = writer;
 	}
 
-	
 
 	public String getContents() {
 		return contents;
 	}
 
-
-
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-
-
 
 	public String getRegdate() {
 		return regdate;
@@ -91,12 +85,10 @@ public class Board {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Board [seq=" + seq + ", title=" + title + ", writer=" + writer + ", contents=" + contents + ", regdate="
 				+ regdate + ", hitcount=" + hitcount + "]";
 	}
-
 	
 }
