@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kosa.model.Board;
 import kosa.model.BoardDao;
+import kosa.model.Search;
 
 @Controller
 public class BoardController {
@@ -50,12 +51,22 @@ public class BoardController {
 		return "redirect:board_list";
 	}
 	
+	/*
+	 * @GetMapping("/board_list") public String showBoard_list(Model model) { //
+	 * System.out.println( dao.listBoard());
+	 * 
+	 * // Model에 데이터를 담을 때 addAttribute( ) 메소드를 사용 model.addAttribute("list",
+	 * dao.listBoard());
+	 * 
+	 * return "list"; }
+	 */
+	
 	@GetMapping("/board_list")
-	public String showBoard_list(Model model) {
-//		System.out.println( dao.listBoard());
+	public String showBoard_list(Search search, Model model) {
+		System.out.println(search);
+		search.setSearchKey("%" + search.getSearchKey() + "%");
 		
-		// Model에 데이터를 담을 때 addAttribute( ) 메소드를 사용
-		model.addAttribute("list", dao.listBoard());
+		model.addAttribute("list", dao.listBoard(search));
 		
 		return "list";
 	}

@@ -18,9 +18,19 @@
 	
 	<!-- 세미콜론 넣으면 안됨. -->
 	<!-- 리스트로 리턴된다. -->
-	<select id="listBoard" resultType="Board">
+<!--    <select id="listBoard" resultType="Board">
 		select * from board order by seq desc
-	</select>
+	</select>  -->
+	
+ 	<select id="listBoard" parameterType="Search" resultType="Board">
+		select * from board 
+		<if test="area != null">
+			<where>
+				where (title LIKE %Java% OR writer LIKE %Java%)
+			</where>
+		</if>
+		order by seq desc
+	</select> 
 	
 	<select id="showDetailBoard" parameterType="int" resultType="Board">
 		select * from board where seq = #{seq}

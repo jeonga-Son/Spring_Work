@@ -32,5 +32,7 @@
 			<td>${detail.hitcount}</td>
 		</tr>
 	</table>
+	
+	<a href="">ÀÌÀü</a>
 </body>
 </html>

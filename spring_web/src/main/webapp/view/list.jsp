@@ -35,5 +35,14 @@
 		</tr>
 		</c:forEach>
 	</table>
+	
+	<br><br>
+	
+	<form action="board_list" method="GET">
+		<input type="checkbox" name="area" value="title">제목
+		<input type="checkbox" name="area" value="writer">작성자
+		<input type="text" name="searchKey" size="10">
+		<input type="submit" value="검색">
+	</form>
 </body>
 </html>

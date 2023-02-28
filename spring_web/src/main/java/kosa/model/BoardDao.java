@@ -18,10 +18,15 @@ public class BoardDao { // Database Access Object
 		sqlSessionTemplate.getMapper(BoardMapper.class).insertBoard(board); // 이 board객체가 mybatis의 board객체까지 전달된다.
 	}
 	
-	public List<Board> listBoard(){
-		return sqlSessionTemplate.getMapper(BoardMapper.class).listBoard();
-	}
+	/*
+	 * public List<Board> listBoard(){ return
+	 * sqlSessionTemplate.getMapper(BoardMapper.class).listBoard(); }
+	 */
 	
+	public List<Board> listBoard(Search search){
+		return sqlSessionTemplate.getMapper(BoardMapper.class).listBoard(search);
+	}
+
 	public Board showDetailBoard(int seq){
 		return sqlSessionTemplate.getMapper(BoardMapper.class).showDetailBoard(seq);
 	}
