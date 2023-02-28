@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kosa.model.Board;
@@ -51,9 +52,19 @@ public class BoardController {
 	@GetMapping("/board_list")
 	public String showBoard_list(Model model) {
 //		System.out.println( dao.listBoard());
+		
+		// Model에 데이터를 담을 때 addAttribute( ) 메소드를 사용
 		model.addAttribute("list", dao.listBoard());
 		
 		return "list";
 	}
+	
+	@GetMapping("/show_board_detail") 
+	public String showBoardDetail(@RequestParam("seq") int seq, Model model) {
+		model.addAttribute("detail", dao.showDetailBoard(seq));
+		
+		return "showDetail";
+	}
+
 	
 }

@@ -21,4 +21,10 @@ public class BoardDao { // Database Access Object
 	public List<Board> listBoard(){
 		return sqlSessionTemplate.getMapper(BoardMapper.class).listBoard();
 	}
+	
+	public Board showDetailBoard(int seq){
+		return sqlSessionTemplate.getMapper(BoardMapper.class).showDetailBoard(seq);
+	}
+
+
 }

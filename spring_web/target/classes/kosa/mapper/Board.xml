@@ -22,7 +22,9 @@
 		select * from board order by seq desc
 	</select>
 	
-	
+	<select id="showDetailBoard" parameterType="int" resultType="Board">
+		select * from board where seq = #{seq}
+	</select>
 	
 </mapper>
 
