@@ -31,9 +31,10 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource"></property> <!-- myDataSource 객체를 전달 -->
-		<property name="configuration" value="/WEB-INF/mybatis-config.xml"></property>
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"></property>
 	</bean>
 	
+	<!-- DB에 연결한다고 생각하면 된다. -->
 	<bean id="myDataSource"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="jdbc/oracle"/>

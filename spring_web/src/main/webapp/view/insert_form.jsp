@@ -15,6 +15,7 @@
 <body>
 <h3>글쓰기</h3>
 <hr>
+<!-- 커스텀 객체 사용, name 대신 path 입력 -->
 <form:form action="board_insert" method="post" commandName="boardCommand">
     작성자 : <form:input type="text" path="writer"/>
     			<form:errors path="writer" cssClass="error"/><br>
