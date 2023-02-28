@@ -156,7 +156,7 @@
       	<!-- 데이터베이스 커넥션 객체를 얻을 수 있다. -->
       	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="kosa01"/>
       </Context>
-      </Host>
+      <Context docBase="ex00" path="/controller" reloadable="true" source="org.eclipse.jst.jee.server:ex00"/></Host>
     </Engine>
   </Service>
 </Server>
