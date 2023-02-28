@@ -26,7 +26,10 @@
 		select * from board 
 		<if test="area != null">
 			<where>
-				where (title LIKE %Java% OR writer LIKE %Java%)
+				<!-- where (title LIKE %Java% OR writer LIKE %Java%) -->
+				<foreach collection="area" item="item" open="(" close=")" separator="OR">
+					${item} LIKE  #{searchKey}
+				</foreach>
 			</where>
 		</if>
 		order by seq desc
