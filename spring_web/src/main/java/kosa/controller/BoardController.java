@@ -50,8 +50,8 @@ public class BoardController {
 	
 	@GetMapping("/board_list")
 	public String showBoard_list(Model model) {
-		System.out.println( dao.listBoard());
-		// model.addAttribute("list", dao.listBoard());
+//		System.out.println( dao.listBoard());
+		model.addAttribute("list", dao.listBoard());
 		
 		return "list";
 	}
