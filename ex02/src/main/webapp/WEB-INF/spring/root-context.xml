@@ -32,5 +32,7 @@
 		</bean>
 		
 		<!-- 객체를 여기서 다 생성한다. 주문서와 같다. mapper 등록 -->
-		<mybatis-spring:scan base-package="org.zerock.mapper"/>		
+		<mybatis-spring:scan base-package="org.zerock.mapper"/>	
+		
+		<context:component-scan base-package="org.zerock.service"></context:component-scan>	
 </beans>

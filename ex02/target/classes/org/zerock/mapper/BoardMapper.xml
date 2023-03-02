@@ -5,12 +5,13 @@
 <mapper namespace="org.zerock.mapper.BoardMapper">
 
 <!-- mapper interface가 필요하다. -->
-  <select id="getList" resultType="org.zerock.domain.Board">
+  <select id="getList" resultType="org.zerock.domain.BoardVO">
 	<!-- <![CDATA[]]> => xml문법이 적용되지 않도록 주석처럼 사용.  -->
 	<![CDATA[
 		select * from tbl_board where bno > 0
 	]]>
   </select>
+  
   	<!-- ver.1 -->
   	<!-- bno에 대한 값을 몰라도 될 때는 이렇게 써도 된다. -->
 	<insert id="insert"> <!-- 파라미터 값 생략 (파라미터 값 1개여서) -->
@@ -33,5 +34,28 @@
 		values (#{bno},
 		#{title}, #{content}, #{writer})
 	</insert>
+	
+	  <select id="read" resultType="org.zerock.domain.BoardVO">
+		<![CDATA[
+			select * from tbl_board where bno = #{bno}
+		]]>
+ 	 </select>
+ 	 
+ 	 <select id="delete" resultType="org.zerock.domain.BoardVO">
+ 	 	<![CDATA[
+ 	 		delete from tbl_board where bno = #{bno}
+ 	 	]]>
+ 	 </select>
+ 	 
+ 	 <select id="update" resultType="org.zerock.domain.BoardVO">
+ 	 	<![CDATA[
+ 	 		update tbl_board 
+ 	 		set title = #{title}, 
+ 	 		content = #{content}, 
+ 	 		writer = #{writer}, 
+ 	 		updateDate = sysdate
+ 	 		where bno = #{bno}
+ 	 	]]>
+ 	 </select>
 
 </mapper>
