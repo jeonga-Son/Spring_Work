@@ -73,7 +73,7 @@ public class BoardMapperTests {
 		board.setContent("수정한 내용");
 		board.setWriter("user0123");
 		
-		int count = mapper.update(board);
+		int count = mapper.update(board); // 수정된 개수?
 		
 		log.info("UPDATE COUNT : " + count);
 		
