@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.BoardMapper">
+
+<!-- mapper interface가 필요하다. -->
+  <select id="getList" resultType="org.zerock.domain.Board">
+	<!-- <![CDATA[]]> => xml문법이 적용되지 않도록 주석처럼 사용.  -->
+	<![CDATA[
+		select * from tbl_board where bno > 0
+	]]>
+  </select>
+  	<!-- ver.1 -->
+  	<!-- bno에 대한 값을 몰라도 될 때는 이렇게 써도 된다. -->
+	<insert id="insert"> <!-- 파라미터 값 생략 (파라미터 값 1개여서) -->
+		insert into tbl_board (bno,title,content,writer)
+		values (seq_board.nextval, #{title}, #{content}, #{writer})
+	</insert>
+
+	<!-- ver.2 -->
+	<insert id="insertSelectKey">
+		<!-- 때에 따라서 bno 값을 알아야 한다. 객체 안에 bno 값을 넣어준 방식-->
+		<!-- insert한 값이 몇 번인지 알려줄 수 있다. -->
+		<!-- url을 bno값을 적용시켜서 client에게 리턴 -->
+		<!-- bno에 대한 정보를 알아야할 때 이렇게 쓴다. -->
+		<selectKey keyProperty="bno" order="BEFORE"
+			resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		
+		insert into tbl_board (bno,title,content, writer)
+		values (#{bno},
+		#{title}, #{content}, #{writer})
+	</insert>
+
+</mapper>
