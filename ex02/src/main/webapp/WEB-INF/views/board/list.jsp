@@ -38,6 +38,7 @@
 					<c:forEach items="${list}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
+							<!-- 게시글을 하나만 가져올 때는 아래처럼 사용하기도 한다. -->
 							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
 
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>
@@ -221,7 +222,7 @@
 									console.log('click');
 
 									actionForm.find("input[name='pageNum']")
-											.val($(this).attr("href"));
+											.val($(this).attr("href")); /* attr => 속성 값 뽑아내는 함수 */
 									actionForm.submit();
 								});
 

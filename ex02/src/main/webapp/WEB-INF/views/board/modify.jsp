@@ -65,7 +65,7 @@
 </div>
 
           
-
+<!-- data라고 시작하는 것들은 data를 저장하기 위해 사용한다. -->
   <button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
   <button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
   <button type="submit" data-oper='list' class="btn btn-info">List</button>
@@ -90,13 +90,14 @@ $(document).ready(function() {
 
 	  $('button').on("click", function(e){
 	    
-	    e.preventDefault(); 
+	    e.preventDefault(); /* 기본 이벤트 취소 */
 	    
-	    var operation = $(this).data("oper");
+	    /* oper에 저장한 데이터 값을 빼올 수 있다. ex. remove, modify 등.. */
+	    var operation = $(this).data("oper"); /* this => 클릭한 버튼  */
 	    
 	    console.log(operation);
 	    
-	    if(operation === 'remove'){
+	    if(operation === 'remove'){ /* 액션을 remove로 이동한다. */
 	      formObj.attr("action", "/board/remove");
 	      
 	    }else if(operation === 'list'){
