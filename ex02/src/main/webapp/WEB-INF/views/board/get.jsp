@@ -55,7 +55,7 @@
   <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
 </form> --%>
 
-
+<!-- submit 하면 modify로 가는데 value값을 가지고 간다. -->
 <form id='operForm' action="/boad/modify" method="get">
   <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
   <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>

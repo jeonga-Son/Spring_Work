@@ -38,7 +38,6 @@
 					<c:forEach items="${list}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-							<!-- 게시글을 하나만 가져올 때는 아래처럼 사용하기도 한다. -->
 							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
 
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>
@@ -56,7 +55,7 @@
 
 				<div class='row'>
 					<div class="col-lg-12">
-
+						<!-- 검색 조건을 결국 문자열로 나눠야 한다. TWC 각각 다른 검색내용이기 때문에 => Criteria의 getTypeArr 메소드로 나눈다. -->
 						<form id='searchForm' action="/board/list" method='get'>
 							<select name='type'>
 								<option value=""
@@ -175,10 +174,6 @@
 <!-- /.row -->
 
 
-
-
-
-
 <script type="text/javascript">
 	$(document)
 			.ready(
@@ -222,7 +217,7 @@
 									console.log('click');
 
 									actionForm.find("input[name='pageNum']")
-											.val($(this).attr("href")); /* attr => 속성 값 뽑아내는 함수 */
+											.val($(this).attr("href"));
 									actionForm.submit();
 								});
 
