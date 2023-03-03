@@ -63,12 +63,19 @@ public class BoardController {
 	
 	
    @PostMapping("/modify")
-   public String modify(BoardVO board, RedirectAttributes rttr) {
+   public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
       log.info("modify : " + board);
       
       if(service.modify(board)) {
          rttr.addFlashAttribute("result", "success");
       }
+      
+      // redirect 했을 때 값을 전달한다.
+      rttr.addAttribute("pageNum", cri.getPageNum());
+      rttr.addAttribute("amount", cri.getAmount());
+      rttr.addAttribute("type", cri.getType());
+      rttr.addAttribute("keyword", cri.getKeyword());
+      
       return "redirect:/board/list";
    }
    
