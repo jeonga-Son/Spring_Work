@@ -102,7 +102,7 @@ $(document).ready(function() {
 	      
 	    }else if(operation === 'list'){
 	      //move to list
-	      formObj.attr("action", "/board/list").attr("method","get");
+	      formObj.attr("action", "/board/list").attr("method","get");s
 	      
 	      /* 가지고 가야 할 정보들만 clone해서 가져오도록 만들었다. */
 	      var pageNumTag = $("input[name='pageNum']").clone();

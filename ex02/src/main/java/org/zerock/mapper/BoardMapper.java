@@ -6,9 +6,9 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 
 public interface BoardMapper {
-	public List<BoardVO> getList(); // getList()가 아이디 역할을 한다.
+	public List<BoardVO> getList();
 	
-	public List<BoardVO> getListWithPaging(Criteria cri); // 페이징 처리
+	public List<BoardVO> getListWithPaging(Criteria cri);
 	
 	public void insert(BoardVO board);
 	
