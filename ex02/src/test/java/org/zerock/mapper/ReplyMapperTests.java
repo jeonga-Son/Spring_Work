@@ -18,7 +18,7 @@ public class ReplyMapperTests {
 	@Autowired
 	private ReplyMapper mapper;
 	
-	private Long[] bnoArr= {5L, 6L, 7L, 8L, 9L};
+	private Long[] bnoArr= {1L, 2L, 3L, 4L, 5L};
  	
 	@Test
 	public void testCreate() {

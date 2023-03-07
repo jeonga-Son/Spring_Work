@@ -141,9 +141,27 @@
       </div>
       <!-- /.modal -->
 
-
-
 <script type="text/javascript" src="/resources/js/reply.js"></script>
+<script type="text/javascript" src="/resources/js/sb-admin-2.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		var bnoValue = '<c:out value="${board.bno}"/>';
+/* 		replyService.add(
+			{bno:bnoValue, reply: "JS TEST", replyer: "tester"},
+			function(resul){
+				alert("result: " + result);
+			}
+		); */
+		
+		replyService.getList({bno:bnoValue, page:1}, function(list){
+			for(var i = 0, len=list.length||0; i< len; i++) {
+				console.log(list[i]);
+			}
+		})
+		 console.log(replyService); 
+	});
+</script>
 
 <script>
 
@@ -410,7 +428,27 @@ function showList(page){
 
 </script>
 
-
+<script type="text/javascript">
+$(document).ready(function() {
+  
+  var operForm = $("#operForm"); 
+  
+  $("button[data-oper='modify']").on("click", function(e){
+    
+    operForm.attr("action","/board/modify").submit();
+    
+  });
+  
+    
+  $("button[data-oper='list']").on("click", function(e){
+    
+    operForm.find("#bno").remove();
+    operForm.attr("action","/board/list")
+    operForm.submit();
+    
+  });  
+});
+</script>
 
 
 
