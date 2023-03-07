@@ -154,12 +154,29 @@
 			}
 		); */
 		
-		replyService.getList({bno:bnoValue, page:1}, function(list){
+		/* replyService.getList({bno:bnoValue, page:1}, function(list){
 			for(var i = 0, len=list.length||0; i< len; i++) {
 				console.log(list[i]);
 			}
 		})
-		 console.log(replyService); 
+		 console.log(replyService);  */
+		 
+		 replyService.remove(3, function(data){
+			 if(data === 'success') {
+				 alert('Remove')
+			 }
+		 }, function(){
+			alert('Eror....') 
+		 });
+		 
+		 /* db 데이터 잘 확인하기 */
+		 replyService.update({
+			 rno:2,
+			 bno:3,
+			 reply : "Modified Reply..."
+		 }, function(result){
+			 alert('수정완료');
+		 });
 	});
 </script>
 
